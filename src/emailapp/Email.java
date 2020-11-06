@@ -8,13 +8,14 @@ public class Email {
     private String password;
     private int defaultPasswordLength = 10;
     private String department;
+    private String email;
     private int mailboxCapacity;
     private String alternateEmail;
 
 
-    public Email(String firstName, String lastName){
-        this.firstName = firstName;
-        this.lastName = lastName;
+    public Email(){
+        this.firstName = askFirstName();
+        this.lastName = askLastName();
         System.out.println("EMAIL CREATED: " + this.firstName + " " + this.lastName);
 
         //Call a method asking for the department - return department
@@ -25,8 +26,25 @@ public class Email {
         this.password = randomPassword(defaultPasswordLength);
         System.out.println("Your password is: " + this.password);
 
+        //Combine elements to form email
+        email = firstName.toLowerCase() + "." + lastName.toLowerCase() + "@" + department + "company.com";
+        System.out.println("Your email is: " + email);
     }
 
+
+    private String askFirstName(){
+        System.out.println("Please enter your first name: ");
+        Scanner scanner = new Scanner(System.in);
+        String fName= scanner.nextLine();
+        return fName;
+    }
+
+    private String askLastName(){
+        System.out.println("Please enter your last name: ");
+        Scanner scanner = new Scanner(System.in);
+        String lName = scanner.nextLine();
+        return lName;
+    }
 
     //Ask for department
     private String askForDepartment(){
