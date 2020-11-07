@@ -9,7 +9,7 @@ public class Email {
     private int defaultPasswordLength = 10;
     private String department;
     private String email;
-    private int mailboxCapacity;
+    private int mailboxCapacity = 500;
     private String alternateEmail;
 
 
@@ -27,7 +27,7 @@ public class Email {
         System.out.println("Your password is: " + this.password);
 
         //Combine elements to form email
-        email = firstName.toLowerCase() + "." + lastName.toLowerCase() + "@" + department + "company.com";
+        email = firstName.toLowerCase() + "." + lastName.toLowerCase() + "@" + department + ".company.com";
         System.out.println("Your email is: " + email);
     }
 
@@ -74,10 +74,36 @@ public class Email {
     }
     //Set the mailboxCapacity
 
+    public void setMailboxCapacity(int mailboxCapacity) {
+        this.mailboxCapacity = mailboxCapacity;
+    }
+
     //Set alternateEmail
 
+    public void setAlternateEmail(String alternateEmail) {
+        this.alternateEmail = alternateEmail;
+    }
+
     //Change the password
+    public  void changePassword(String password){
+        this.password = password;
+    }
 
+    public int getMailboxCapacity(){
+        return mailboxCapacity;
+    }
 
+    public String getAlternateEmail(){
+        return alternateEmail;
+    }
 
+    public String getPassword() {
+        return password;
+    }
+
+    public String showInfo(){
+        return "DISPLAY NAME: " + firstName + " " + lastName +
+                "\nCOMPANY EMAIL: " + email + "\nMAILBOX CAPACITY: " +
+                mailboxCapacity + "mb";
+    }
 }
